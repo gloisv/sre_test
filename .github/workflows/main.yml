@@ -1,0 +1,27 @@
+name: CI Pipeline
+on:
+  pull_request:
+  branches:
+  -main
+
+jobs:
+  build:
+    runs-on: ubuntu-lastest
+    steps:
+      -name: Checkout Repository
+      uses: actions/checkout@v2
+
+      -name: Install Dependencies
+      run: npm run install
+
+      -name: Run Linter
+      run: npm run lint
+
+      -name: Run Formatter
+      run: npm run prettier
+
+      -name: Run Tests
+      run: CI=true npm run test
+
+      -name: Build Application
+      run: npm run build
