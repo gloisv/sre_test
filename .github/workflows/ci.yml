@@ -19,15 +19,20 @@ jobs:
 
       - name: Install Dependencies
         run: npm run install
+        working-directory: ./codebase/rdicidr-0.1.0
 
       - name: Run Linter
         run: npm run lint
+        working-directory: ./codebase/rdicidr-0.1.0
 
       - name: Run Formatter
         run: npm run prettier
+        working-directory: ./codebase/rdicidr-0.1.0
 
       - name: Run Tests
         run: CI=true npm run test
+        working-directory: ./codebase/rdicidr-0.1.0
 
       - name: Build Application
         run: npm run build
+        working-directory: ./codebase/rdicidr-0.1.0
